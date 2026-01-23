@@ -1,10 +1,26 @@
-<select id="tone">
-  <option value="soft">Soft</option>
-  <option value="playful">Playful</option>
-</select>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Poem Generator</title>
+</head>
 
-<input type="number" id="length" value="5" min="1" max="10">
+<body>
 
-<button onclick="runProgram()">Generate Poem</button>
+  <h3>&gt; java PoemGenerator</h3>
 
-<div id="output"></div>
+  <select id="tone">
+    <option value="soft">Soft</option>
+    <option value="playful">Playful</option>
+  </select>
+
+  <input type="number" id="length" value="5" min="1" max="10">
+
+  <button onclick="runProgram()">Generate Poem</button>
+
+  <div id="output"></div>
+
+  <!-- SCRIPT GOES HERE -->
+  <script src="script.js"></script>
+</body>
+</html>
