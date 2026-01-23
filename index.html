@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Poem.java</title>
-</head>
-<body>
+<select id="tone">
+  <option value="soft">Soft</option>
+  <option value="playful">Playful</option>
+</select>
 
-<h3>&gt; java Poem.java</h3>
+<input type="number" id="length" value="5" min="1" max="10">
+
+<button onclick="runProgram()">Generate Poem</button>
+
 <div id="output"></div>
-
-<button onclick="runProgram()">Run program</button>
-
-<script src="script.js"></script>
-</body>
-</html>
