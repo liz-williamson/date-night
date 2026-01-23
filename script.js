@@ -30,7 +30,7 @@ function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-function typeText(text, element, speed = 40, callback) {
+function typeText(text, element, speed = 40) {
   let i = 0;
 
   function typeChar() {
@@ -40,7 +40,6 @@ function typeText(text, element, speed = 40, callback) {
       setTimeout(typeChar, speed);
     } else {
       element.innerHTML += "<br>";
-      if (callback) callback();
     }
   }
 
@@ -48,10 +47,8 @@ function typeText(text, element, speed = 40, callback) {
 }
 
 function addCursor() {
-    const cursor = document.createElement("span");
-    cursor.className = "cursor";
-    cursor.textContent = "█";  // safer than innerHTML
-    output.appendChild(cursor);
+  const output = document.getElementById("output");
+  output.innerHTML += '<span class="cursor">█</span>';
 }
 
 function generatePoem(tone, length) {
@@ -104,9 +101,8 @@ function runProgram() {
 
   function typePoem(lines, index) {
     if (index < lines.length) {
-      typeText(lines[index], output, 40, () => {
-            typePoem(lines, index + 1); // next line
-      });
+      typeText(lines[index], output, 40);
+      setTimeout(() => typePoem(lines, index + 1), 700);
     }
     else {
     addCursor(); }
