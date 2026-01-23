@@ -30,6 +30,22 @@ function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
+function typeText(text, element, speed = 40) {
+  let i = 0;
+
+  function typeChar() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeChar, speed);
+    } else {
+      element.innerHTML += "<br>";
+    }
+  }
+
+  typeChar();
+}
+
 function generatePoem(tone, length) {
   let poem = "";
 
@@ -53,15 +69,11 @@ function generatePoem(tone, length) {
 
 function runProgram() {
   const output = document.getElementById("output");
-
-  // Clear previous output
   output.innerHTML = "";
 
-  // Read parameters from UI
   const tone = document.getElementById("tone").value;
   const length = parseInt(document.getElementById("length").value);
 
-  // Simulate terminal-style execution
   const bootLines = [
     "> java PoemGenerator",
     "Initializing language model...",
@@ -71,16 +83,23 @@ function runProgram() {
 
   let i = 0;
 
-  function printBoot() {
+  function bootSequence() {
     if (i < bootLines.length) {
-      output.innerHTML += bootLines[i] + "<br>";
+      typeText(bootLines[i], output, 30);
       i++;
-      setTimeout(printBoot, 500);
+      setTimeout(bootSequence, 600);
     } else {
-      // Generate and print poem
-      output.innerHTML += generatePoem(tone, length);
+      const poem = generatePoem(tone, length).split("<br>");
+      typePoem(poem, 0);
     }
   }
 
-  printBoot();
+  function typePoem(lines, index) {
+    if (index < lines.length) {
+      typeText(lines[index], output, 40);
+      setTimeout(() => typePoem(lines, index + 1), 700);
+    }
+  }
+
+  bootSequence();
 }

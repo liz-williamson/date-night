@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Poem Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <p>DEPLOY TEST — SHOULD SEE THIS</p>
 
-  <h3>&gt; java PoemGenerator</h3>
+<div class="terminal">
+  <h3>PoemGenerator</h3>
 
   <select id="tone">
     <option value="soft">Soft</option>
@@ -19,9 +20,12 @@
 
   <button onclick="runProgram()">Generate Poem</button>
 
-  <div id="output"></div>
+  <div id="output">
+    <span class="cursor">█</span>
+  </div>
 
   <!-- SCRIPT GOES HERE -->
   <script src="script.js"></script>
+</div>
 </body>
 </html>
