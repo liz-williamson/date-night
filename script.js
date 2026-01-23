@@ -46,11 +46,6 @@ function typeText(text, element, speed = 40) {
   typeChar();
 }
 
-function addCursor() {
-  const output = document.getElementById("output");
-  output.innerHTML += '<span class="cursor">█</span>';
-}
-
 function generatePoem(tone, length) {
   let poem = "";
 
@@ -104,8 +99,6 @@ function runProgram() {
       typeText(lines[index], output, 40);
       setTimeout(() => typePoem(lines, index + 1), 700);
     }
-    else {
-    addCursor(); }
   }
 
   bootSequence();
