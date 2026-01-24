@@ -31,11 +31,21 @@ const poemLines = [
   "words jogging into place",
   "your pace, your call",
   "we can slow it down",
-  "waiting at the start line"
+  "waiting at the start line",
+  "my thoughts struggling to keep pace",
+  "date night, no qualifying time required",
+  "Oregon on the horizon",
+  "where even the ducks have endurance",
+  "an easy jog of an idea",
+  "love warming up at the start line",
+  "wondering if you'd like to pace this together",
+  "the timing is just right",
+  "make me a lucky duck",
+  "don't give me the Shortend of the stick",
 ];
 
 const endingLines = [
-  "now I'll keep this Short-en sweet... date night?",
+  "I'll keep this Short-en sweet... date night?",
   "this poem is Shorten... but date night won't be.",
   "life's too Shorten to not bring me to date night."
 ];
@@ -58,6 +68,9 @@ function generatePoem(length) {
   }
 
   poem += "<br>" + randomFrom(endingLines);
+
+  poem += "<br><br>" + "<b>Date night with Liz?</b>";
+
   return poem;
 }
 
@@ -78,9 +91,10 @@ function runProgram() {
   // Simulate terminal-style execution
   const bootLines = [
     "> java DateNight",
-    "Initializing language model...",
     "Preparing date night ask...",
-    ""
+    "",
+    "<i><b>Confessions of Liz Williamson</b></i>",
+
   ];
 
   let i = 0;
@@ -97,7 +111,7 @@ function runProgram() {
           <div style="margin-top:20px">
             <label>
               <input type="checkbox" id="yesDate">
-              I’d love to go to date night with you!
+              Of course, can’t wait!
             </label>
             <label>
                <input type="checkbox" id="noDate">
@@ -107,13 +121,13 @@ function runProgram() {
         `;
        document.getElementById("yesDate").addEventListener("change", function () {
          if (this.checked) {
-           output.innerHTML += `<b>I’ll see you there!</b>`;
+           output.innerHTML += `<b>I’ll see you there!😉</b>`;
            this.disabled = true;
          }
        });
        document.getElementById("noDate").addEventListener("change", function () {
                 if (this.checked) {
-                  output.innerHTML += `<b>Whoops! An error occurred. Generate a new ask and try a different option.</b>`;
+                  output.innerHTML += `<b>Answer not recognized. Read another poem and maybe try a different option.</b>`;
                   this.disabled = true;
                 }
               });
