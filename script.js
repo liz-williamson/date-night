@@ -3,22 +3,41 @@
  *********************************/
 
 // Example vocab pools — replace with yours
-const softLines = [
-  "The afternoon leans gently forward,",
-  "a quiet thought waiting to be spoken,",
-  "something warm settles in the air,"
-];
-
-const playfulLines = [
-  "This line pretends it knows what it’s doing,",
-  "a semicolon wonders if it belongs here,",
-  "the poem trips but keeps going anyway,"
+const poemLines = [
+  "the question waiting between us",
+  "an evening shaped like a maybe",
+  "a table meant for two",
+  "the possibility of the night",
+  "green and yellow in motion",
+  "a future leaning west",
+  "wings angled toward Oregon",
+  "the moment charged with maybe",
+  "plans waiting to be claimed",
+  "a night asking to begin",
+  "wings testing the distance",
+  "a duck bold enough to try",
+  "a confident waddle forward",
+  "meaning found in proximity",
+  "wherever this leads",
+  "an ending waiting to be chosen",
+  "the question picking up the pace",
+  "Jack, somewhere in the stride",
+  "flirting at a conversational jog",
+  "a heartbeat setting the tempo",
+  "plans tying their laces",
+  "the comfort of running side by side",
+  "wings pumping, confidence steady",
+  "a future leaning west at speed",
+  "words jogging into place",
+  "your pace, your call",
+  "we can slow it down",
+  "waiting at the start line"
 ];
 
 const endingLines = [
-  "and maybe this is enough for now.",
-  "which feels oddly brave.",
-  "and that feels like a good place to stop."
+  "now I'll keep this Short-en sweet... date night?",
+  "this poem is Shorten... but date night won't be.",
+  "life's too Shorten to not bring me to date night."
 ];
 
 
@@ -30,16 +49,12 @@ function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-function generatePoem(tone, length) {
+function generatePoem(length) {
   let poem = "";
 
   for (let i = 0; i < length; i++) {
-    if (tone === "soft") {
-      poem += randomFrom(softLines);
-    } else {
-      poem += randomFrom(playfulLines);
-    }
-    poem += "<br>";
+      poem += randomFrom(poemLines);
+      poem += "<br>";
   }
 
   poem += "<br>" + randomFrom(endingLines);
@@ -58,14 +73,13 @@ function runProgram() {
   output.innerHTML = "";
 
   // Read parameters from UI
-  const tone = document.getElementById("tone").value;
   const length = parseInt(document.getElementById("length").value);
 
   // Simulate terminal-style execution
   const bootLines = [
-    "> java PoemGenerator",
+    "> java DateNight",
     "Initializing language model...",
-    "Loading parameters...",
+    "Preparing date night ask...",
     ""
   ];
 
@@ -78,9 +92,33 @@ function runProgram() {
       setTimeout(printBoot, 500);
     } else {
       // Generate and print poem
-      output.innerHTML += generatePoem(tone, length);
+      output.innerHTML += generatePoem(length);
+      output.innerHTML += `
+          <div style="margin-top:20px">
+            <label>
+              <input type="checkbox" id="yesDate">
+              I’d love to go to date night with you!
+            </label>
+            <label>
+               <input type="checkbox" id="noDate">
+               Absolutely not.
+            </label>
+          </div>
+        `;
+       document.getElementById("yesDate").addEventListener("change", function () {
+         if (this.checked) {
+           output.innerHTML += `<b>I’ll see you there!</b>`;
+           this.disabled = true;
+         }
+       });
+       document.getElementById("noDate").addEventListener("change", function () {
+                if (this.checked) {
+                  output.innerHTML += `<b>Whoops! An error occurred. Generate a new ask and try a different option.</b>`;
+                  this.disabled = true;
+                }
+              });
     }
   }
-
   printBoot();
+
 }

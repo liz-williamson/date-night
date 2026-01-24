@@ -1,7 +1,7 @@
 body {
   background-color: #007030;
   color: #2c9110;
-  font-family: "Courier New", monospace;
+  font-family: "Garamond", monospace;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +30,51 @@ button, select, input {
 button:hover {
   background-color: #2e5f46;
   cursor: pointer;
+}
+
+#lfg {
+    padding:20px;
+    height: 400px;
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#swagger {
+    padding:20px;
+    height: 150px;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 500;
+}
+
+#silly {
+    padding:20px;
+    height: 300px;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    right: 2%;
+}
+
+#cupid {
+    padding:20px;
+    height: 250px;
+    width: 350px;
+    position: fixed;
+    bottom: 2%;
+    left: 0;
+}
+
+#wedding {
+    padding:20px;
+    height: 350px;
+    width: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 #output {

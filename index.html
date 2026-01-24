@@ -2,23 +2,22 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Poem Generator</title>
+  <title>Date Night Ask</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <img id="lfg" src="lfg.png">
+  <img id="silly" src="silly.png">
+  <img id="cupid" src="cupid.png">
+  <img id="wedding" src="wedding.png">
 
   <div class="terminal">
-  <h3>PoemGenerator</h3>
+  <h3>Date Night</h3>
+    <i>Tap to generate your date night ask!</i><br>
+    <b>Lines: </b><input type="number" id="length" value="5" min="1" max="10">
 
-  <select id="tone">
-    <option value="soft">Soft</option>
-    <option value="playful">Playful</option>
-  </select>
-
-  <input type="number" id="length" value="5" min="1" max="10">
-
-  <button onclick="runProgram()">Generate Poem</button>
+  <button onclick="runProgram()">Generate Ask</button>
 
   <div id="output"></div>
 
