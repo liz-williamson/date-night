@@ -1,6 +1,6 @@
 body {
-  background-color: #007030;        /* dark terminal background */
-  color: #d7fbe8;                   /* soft green text */
+  background-color: #007030;
+  color: #2c9110;
   font-family: "Courier New", monospace;
   display: flex;
   justify-content: center;
